@@ -1,4 +1,7 @@
+[![License:Zlib](https://img.shields.io/badge/License-Zlib-brightgreen.svg)](https://opensource.org/licenses/Zlib)
 [![AppVeyor](https://ci.appveyor.com/api/projects/status/msvrnnl40fhs55tq/branch/master?svg=true)](https://ci.appveyor.com/project/Lokathor/lawrencium/branch/master)
+[![crates.io](https://img.shields.io/crates/v/lawrencium.svg)](https://crates.io/crates/lawrencium)
+[![docs.rs](https://docs.rs/lawrencium/badge.svg)](https://docs.rs/lawrencium/)
 
 # lawrencium
 
