@@ -1,6 +1,7 @@
 [package]
 name = "lawrencium"
-version = "0.0.0"
+description = "Lr103"
+version = "0.0.0-alpha"
 authors = ["Lokathor <zefria@gmail.com>"]
 repository = "https://github.com/Lokathor/lawrencium"
 categories = ["external-ffi-bindings", "os::windows-apis"]
