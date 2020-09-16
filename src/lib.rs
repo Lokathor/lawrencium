@@ -712,12 +712,18 @@ extern "system" {
 
   /// [`LoadLibraryA`](https://docs.microsoft.com/en-us/windows/win32/api/libloaderapi/nf-libloaderapi-loadlibrarya)
   pub fn LoadLibraryA(lpLibFileName: LPCSTR) -> HMODULE;
+
+  /// [`GetLastError`](https://docs.microsoft.com/en-us/windows/win32/api/errhandlingapi/nf-errhandlingapi-getlasterror)
+  pub fn GetLastError() -> DWORD;
 }
 
 #[link(name = "Opengl32")]
 extern "system" {
   /// [`wglCreateContext`](https://docs.microsoft.com/en-us/windows/win32/api/wingdi/nf-wingdi-wglcreatecontext)
   pub fn wglCreateContext(Arg1: HDC) -> HGLRC;
+
+  /// [`wglDeleteContext`](https://docs.microsoft.com/en-us/windows/win32/api/wingdi/nf-wingdi-wgldeletecontext)
+  pub fn wglDeleteContext(Arg1: HGLRC) -> BOOL;
 
   /// [`wglGetProcAddress`](https://docs.microsoft.com/en-us/windows/win32/api/wingdi/nf-wingdi-wglgetprocaddress)
   pub fn wglGetProcAddress(Arg1: LPCSTR) -> PROC;
