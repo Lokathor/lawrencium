@@ -13,19 +13,10 @@
 
 use core::ffi::c_void;
 
-macro_rules! submodule {
-  ($v:vis $name:ident) => {
-    mod $name;
-    $v use $name::*;
-  };
-  ($v:vis $name:ident { $($content:tt)* }) => {
-    mod $name { $($content)* }
-    $v use $name::*;
-  };
-}
-
-submodule!(pub types);
-submodule!(pub handles);
+mod types;
+pub use types::*;
+mod handles;
+pub use handles::*;
 
 macro_rules! define {
   ($(#[$m:meta])* $name:ident : $t:ty, $val:expr) => {
