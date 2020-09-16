@@ -5,10 +5,10 @@
 //! `lawrencium` is a minimal set of Windows API bindings.
 //!
 //! ## Cargo Features
-//! * `struct_debug`: structs derive [`Debug`](core::fmt::Debug)
+//! * `struct_debug`: structs derive [`Debug`](core::fmt::Debug).
 //! * `struct_eq`: structs derive [`PartialEq`](core::cmp::PartialEq) and
 //!   [`Eq`](core::cmp::Eq).
-//! * `struct_hash`: structs derive [`Hash`](core::hash::Hash)
+//! * `struct_hash`: structs derive [`Hash`](core::hash::Hash).
 //! * `struct_default`: structs implement [`Default`](core::default::Default).
 
 use core::ffi::c_void;
