@@ -1,5 +1,3 @@
-use super::*;
-
 /// Rusty version of `DECLARE_HANDLE` from `ntdef.h`
 ///
 /// In C, it would make, `struct Foo__;` and `typedef struct Foo__ *name;`.

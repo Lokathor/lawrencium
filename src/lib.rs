@@ -1,7 +1,5 @@
 #![cfg(windows)]
 #![no_std]
-#![allow(unused_macros)]
-#![allow(unused_imports)]
 #![allow(bad_style)]
 
 use core::ffi::c_void;
@@ -596,24 +594,28 @@ define!(VK_NONAME, 0xFC);
 define!(VK_PA1, 0xFD);
 define!(VK_OEM_CLEAR, 0xFE);
 
+#[allow(unused_macros)]
 macro_rules! HIWORD {
   ($l:expr) => {
     ((($l as DWORD_PTR) >> 16) & 0xFFFF) as WORD
   };
 }
 
+#[allow(unused_macros)]
 macro_rules! LOWORD {
   ($l:expr) => {
     (($l as DWORD_PTR) & 0xFFFF) as WORD
   };
 }
 
+#[allow(unused_macros)]
 macro_rules! GET_X_LPARAM {
   ($lp:expr) => {
     LOWORD!($lp) as c_short as c_int
   };
 }
 
+#[allow(unused_macros)]
 macro_rules! GET_Y_LPARAM {
   ($lp:expr) => {
     HIWORD!($lp) as c_short as c_int
@@ -736,15 +738,12 @@ extern "system" {
 extern "system" {
   /// [`ChoosePixelFormat`](https://docs.microsoft.com/en-us/windows/win32/api/wingdi/nf-wingdi-choosepixelformat)
   pub fn ChoosePixelFormat(
-    hdc: HDC,
-    ppfd: *const PIXELFORMATDESCRIPTOR,
+    hdc: HDC, ppfd: *const PIXELFORMATDESCRIPTOR,
   ) -> c_int;
 
   /// [`SetPixelFormat`](https://docs.microsoft.com/en-us/windows/win32/api/wingdi/nf-wingdi-setpixelformat)
   pub fn SetPixelFormat(
-    hdc: HDC,
-    format: c_int,
-    ppfd: *const PIXELFORMATDESCRIPTOR,
+    hdc: HDC, format: c_int, ppfd: *const PIXELFORMATDESCRIPTOR,
   ) -> BOOL;
 
   /// [`SwapBuffers`](https://docs.microsoft.com/en-us/windows/win32/api/wingdi/nf-wingdi-swapbuffers)
@@ -755,10 +754,7 @@ extern "system" {
 extern "system" {
   /// [`AdjustWindowRectEx`](https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-adjustwindowrectex)
   pub fn AdjustWindowRectEx(
-    lpRect: LPRECT,
-    dwStyle: DWORD,
-    bMenu: BOOL,
-    dwExStyle: DWORD,
+    lpRect: LPRECT, dwStyle: DWORD, bMenu: BOOL, dwExStyle: DWORD,
   ) -> BOOL;
 
   /// [`CloseWindow`](https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-closewindow)
@@ -766,26 +762,14 @@ extern "system" {
 
   /// [`CreateWindowExW`](https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-createwindowexw)
   pub fn CreateWindowExW(
-    dwExStyle: DWORD,
-    lpClassName: LPCWSTR,
-    lpWindowName: LPCWSTR,
-    dwStyle: DWORD,
-    X: c_int,
-    Y: c_int,
-    nWidth: c_int,
-    nHeight: c_int,
-    hWndParent: HWND,
-    hMenu: HMENU,
-    hInstance: HINSTANCE,
-    lpParam: LPVOID,
+    dwExStyle: DWORD, lpClassName: LPCWSTR, lpWindowName: LPCWSTR,
+    dwStyle: DWORD, X: c_int, Y: c_int, nWidth: c_int, nHeight: c_int,
+    hWndParent: HWND, hMenu: HMENU, hInstance: HINSTANCE, lpParam: LPVOID,
   ) -> HWND;
 
   /// [`DefWindowProcW`](https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-defwindowprocw)
   pub fn DefWindowProcW(
-    hWnd: HWND,
-    Msg: UINT,
-    wParam: WPARAM,
-    lParam: LPARAM,
+    hWnd: HWND, Msg: UINT, wParam: WPARAM, lParam: LPARAM,
   ) -> LRESULT;
 
   /// [`DestroyWindow`](https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-destroywindow)
@@ -817,20 +801,13 @@ extern "system" {
 
   /// [`MoveWindow`](https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-movewindow)
   pub fn MoveWindow(
-    hWnd: HWND,
-    X: c_int,
-    Y: c_int,
-    nWidth: c_int,
-    nHeight: c_int,
+    hWnd: HWND, X: c_int, Y: c_int, nWidth: c_int, nHeight: c_int,
     bRepaint: BOOL,
   ) -> BOOL;
 
   /// [`PeekMessageW`](https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-peekmessagew)
   pub fn PeekMessageW(
-    lpMsg: LPMSG,
-    hWnd: HWND,
-    wMsgFilterMin: UINT,
-    wMsgFilterMax: UINT,
+    lpMsg: LPMSG, hWnd: HWND, wMsgFilterMin: UINT, wMsgFilterMax: UINT,
     wRemoveMsg: UINT,
   ) -> BOOL;
 
@@ -851,9 +828,7 @@ extern "system" {
 
   /// [`SetWindowLongPtrW`](https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-setwindowlongptrw)
   pub fn SetWindowLongPtrW(
-    hWnd: HWND,
-    nIndex: c_int,
-    dwNewLong: LONG_PTR,
+    hWnd: HWND, nIndex: c_int, dwNewLong: LONG_PTR,
   ) -> LONG_PTR;
 
   /// [`SetWindowTextW`](https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-setwindowtextw)
