@@ -34,12 +34,12 @@ macro_rules! define {
 define!(FALSE: c_int, 0);
 define!(TRUE: c_int, 1);
 
-define!(PFD_TYPE_RGBA, 0);
-define!(PFD_TYPE_COLORINDEX, 1);
+define!(PFD_TYPE_RGBA: BYTE, 0);
+define!(PFD_TYPE_COLORINDEX: BYTE, 1);
 
-define!(PFD_MAIN_PLANE, 0);
-define!(PFD_OVERLAY_PLANE, 1);
-define!(PFD_UNDERLAY_PLANE: c_int, -1);
+define!(PFD_MAIN_PLANE: BYTE, 0);
+define!(PFD_OVERLAY_PLANE: BYTE, 1);
+define!(PFD_UNDERLAY_PLANE: BYTE, 255);
 
 define!(PFD_DOUBLEBUFFER, 0x00000001);
 define!(PFD_STEREO, 0x00000002);
