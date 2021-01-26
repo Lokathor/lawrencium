@@ -630,7 +630,7 @@ macro_rules! c_struct {
     #[cfg_attr(feature = "struct_eq", derive(PartialEq, Eq))]
     #[cfg_attr(feature = "struct_hash", derive(Hash))]
     pub struct $name {
-      pub $($field : $field_type),*
+      $(pub $field : $field_type),*
     }
     impl Copy for $name {}
     impl Clone for $name { fn clone(&self) -> Self { *self } }
