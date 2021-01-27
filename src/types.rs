@@ -27,6 +27,8 @@ pub type c_ulonglong = u64;
 pub type c_float = f32;
 pub type c_double = f64;
 
+pub type FARPROC = *mut c_void;
+pub type NEARPROC = *mut c_void;
 pub type PROC = *mut c_void;
 
 typedef!(*mut c_void, HANDLE);

@@ -630,7 +630,7 @@ macro_rules! c_struct {
     #[cfg_attr(feature = "struct_eq", derive(PartialEq, Eq))]
     #[cfg_attr(feature = "struct_hash", derive(Hash))]
     pub struct $name {
-      $($field : $field_type),*
+      $(pub $field : $field_type),*
     }
     impl Copy for $name {}
     impl Clone for $name { fn clone(&self) -> Self { *self } }
@@ -715,6 +715,9 @@ extern "system" {
   /// [`LoadLibraryA`](https://docs.microsoft.com/en-us/windows/win32/api/libloaderapi/nf-libloaderapi-loadlibrarya)
   pub fn LoadLibraryA(lpLibFileName: LPCSTR) -> HMODULE;
 
+  /// [`GetProcAddress`](https://docs.microsoft.com/en-us/windows/win32/api/libloaderapi/nf-libloaderapi-getprocaddress)
+  pub fn GetProcAddress(hModule: HMODULE, lpProcName: LPCSTR) -> FARPROC;
+
   /// [`GetLastError`](https://docs.microsoft.com/en-us/windows/win32/api/errhandlingapi/nf-errhandlingapi-getlasterror)
   pub fn GetLastError() -> DWORD;
 }
@@ -745,6 +748,11 @@ extern "system" {
   pub fn SetPixelFormat(
     hdc: HDC, format: c_int, ppfd: *const PIXELFORMATDESCRIPTOR,
   ) -> BOOL;
+
+  /// [`DescribePixelFormat`](https://docs.microsoft.com/en-us/windows/win32/api/wingdi/nf-wingdi-describepixelformat)
+  pub fn DescribePixelFormat(
+    hdc: HDC, iPixelFormat: c_int, nBytes: UINT, ppfd: *mut PIXELFORMATDESCRIPTOR,
+  ) -> c_int;
 
   /// [`SwapBuffers`](https://docs.microsoft.com/en-us/windows/win32/api/wingdi/nf-wingdi-swapbuffers)
   pub fn SwapBuffers(arg1: HDC) -> BOOL;
